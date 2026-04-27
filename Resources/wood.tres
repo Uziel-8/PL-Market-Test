@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Commodity" format=3 uid="uid://bvnx2mnfh76fa"]
+
+[ext_resource type="Script" uid="uid://dadgjthpvgbma" path="res://Scripts/commodity.gd" id="1_irjvf"]
+
+[resource]
+script = ExtResource("1_irjvf")
+commodity_name = "Wood"
+current_price = 5.0
+supply = 1.1
+demand = 1.0
+volatility_low = 0.9
+volatility_high = 1.0
+global_quantity = 5000
+metadata/_custom_type_script = "uid://dadgjthpvgbma"

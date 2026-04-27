@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Commodity" format=3 uid="uid://bdta32x6obxil"]
+
+[ext_resource type="Script" uid="uid://dadgjthpvgbma" path="res://Scripts/commodity.gd" id="1_204is"]
+
+[resource]
+script = ExtResource("1_204is")
+commodity_name = "Gold"
+current_price = 300.0
+supply = 0.9
+demand = 1.1
+volatility_low = 0.5
+volatility_high = 1.5
+global_quantity = 500
+metadata/_custom_type_script = "uid://dadgjthpvgbma"

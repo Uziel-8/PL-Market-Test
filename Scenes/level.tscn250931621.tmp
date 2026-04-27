@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://crr7rs2oxppb"]
+
+[ext_resource type="Script" uid="uid://d1pmn0wkwor15" path="res://Scenes/level.gd" id="1_tumq0"]
+
+[node name="Level" type="Node2D" unique_id=1485133035]
+script = ExtResource("1_tumq0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1146651220]
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=1598919518]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

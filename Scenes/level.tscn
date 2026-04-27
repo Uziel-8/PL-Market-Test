@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://crr7rs2oxppb"]
+
+[ext_resource type="Script" uid="uid://d1pmn0wkwor15" path="res://Scenes/level.gd" id="1_tumq0"]
+[ext_resource type="PackedScene" uid="uid://dmu63ibo5pshr" path="res://Scenes/production_centre_1.tscn" id="2_k5f4k"]
+[ext_resource type="Script" uid="uid://cn7xk62lajnpm" path="res://Scenes/price_graph.gd" id="3_6phgx"]
+
+[node name="Level" type="Node2D" unique_id=1485133035]
+script = ExtResource("1_tumq0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1146651220]
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=1598919518]
+offset_left = 253.0
+offset_top = 173.0
+offset_right = 715.0
+offset_bottom = 458.0
+text = "test"
+autowrap_mode = 2
+
+[node name="GoldLabel" type="Label" parent="." unique_id=1758982276]
+offset_left = 322.0
+offset_top = 5.0
+offset_right = 362.0
+offset_bottom = 28.0
+size_flags_horizontal = 4
+
+[node name="ProductionCentre1" parent="." unique_id=804269367 instance=ExtResource("2_k5f4k")]
+
+[node name="Panel" type="Panel" parent="." unique_id=1962022216]
+offset_left = 721.0
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 308.0
+
+[node name="PriceGraph" type="Control" parent="Panel" unique_id=153395004]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_6phgx")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

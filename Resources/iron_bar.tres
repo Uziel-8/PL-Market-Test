@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Commodity" format=3 uid="uid://btjhdpbthwx48"]
+
+[ext_resource type="Script" uid="uid://dadgjthpvgbma" path="res://Scripts/commodity.gd" id="1_c4vw1"]
+
+[resource]
+script = ExtResource("1_c4vw1")
+commodity_name = "Iron Bar"
+current_price = 150.0
+supply = 1.0
+demand = 1.0
+volatility_low = 0.7
+volatility_high = 1.2
+metadata/_custom_type_script = "uid://dadgjthpvgbma"

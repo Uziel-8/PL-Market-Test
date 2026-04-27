@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Commodity" format=3 uid="uid://mchoaygq2jwf"]
+
+[ext_resource type="Script" uid="uid://dadgjthpvgbma" path="res://Scripts/commodity.gd" id="1_2g6jo"]
+
+[resource]
+script = ExtResource("1_2g6jo")
+commodity_name = "Iron Ore"
+current_price = 50.0
+supply = 1.0
+demand = 1.0
+volatility_low = 0.8
+volatility_high = 1.1
+global_quantity = 300
+metadata/_custom_type_script = "uid://dadgjthpvgbma"

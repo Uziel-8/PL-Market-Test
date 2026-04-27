@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Commodity" format=3 uid="uid://yv2wym20kdh4"]
+
+[ext_resource type="Script" uid="uid://dadgjthpvgbma" path="res://Scripts/commodity.gd" id="1_54jvl"]
+
+[resource]
+script = ExtResource("1_54jvl")
+commodity_name = "Coal"
+current_price = 10.0
+supply = 1.0
+demand = 1.1
+volatility_low = 0.9
+volatility_high = 1.1
+global_quantity = 1000
+metadata/_custom_type_script = "uid://dadgjthpvgbma"
