@@ -5,9 +5,11 @@
 [resource]
 script = ExtResource("1_c4vw1")
 commodity_name = "Iron Bar"
+base_price = 150.0
 current_price = 150.0
 supply = 1.0
 demand = 1.0
 volatility_low = 0.7
 volatility_high = 1.2
+global_quantity = 100
 metadata/_custom_type_script = "uid://dadgjthpvgbma"

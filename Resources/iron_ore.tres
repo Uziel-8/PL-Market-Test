@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_2g6jo")
 commodity_name = "Iron Ore"
+base_price = 50.0
 current_price = 50.0
 supply = 1.0
 demand = 1.0

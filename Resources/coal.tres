@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_54jvl")
 commodity_name = "Coal"
+base_price = 10.0
 current_price = 10.0
 supply = 1.0
 demand = 1.1

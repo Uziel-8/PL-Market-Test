@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_irjvf")
 commodity_name = "Wood"
+base_price = 5.0
 current_price = 5.0
 supply = 1.1
 demand = 1.0

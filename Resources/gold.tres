@@ -5,10 +5,12 @@
 [resource]
 script = ExtResource("1_204is")
 commodity_name = "Gold"
-current_price = 300.0
-supply = 0.9
-demand = 1.1
+base_price = 200.0
+current_price = 200.0
+supply = 1.0
+demand = 1.0
 volatility_low = 0.5
 volatility_high = 1.5
 global_quantity = 500
+elasticity = 2.0
 metadata/_custom_type_script = "uid://dadgjthpvgbma"

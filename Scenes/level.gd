@@ -13,6 +13,7 @@ func _on_timer_timeout() -> void:
 func game_tick():
 	for Commodity in Globals.commodities:
 		print(Commodity.commodity_name, " current price: ", Commodity.current_price)
+	_update_production()
 	_update_market()
 	_update_label()
 
@@ -21,15 +22,16 @@ func _update_label():
 	for commodity in Globals.commodities:
 		label.text += str(commodity.commodity_name, ": ", commodity.current_price) + "\n"
 
+func _update_production():
+	for commodity in Globals.commodities:
+		commodity.global_quantity += commodity.production_rate
+		commodity.global_quantity -= commodity.consumption_rate
+		commodity.global_quantity = max(commodity.global_quantity, 0.0)
+
 
 func _update_market():
 	for commodity in Globals.commodities:
-		var ratio = commodity.demand/commodity.supply
-		commodity.updated_price = commodity.current_price * pow(ratio, commodity.elasticity)
-		#commodity.updated_price = commodity.current_price * randf_range(commodity.volatility_low, commodity.volatility_high)
-		commodity.current_price = commodity.updated_price
+		var ratio = commodity.global_quantity/max(commodity.target_quantity, 1.0)
+		commodity.current_price = commodity.base_price / pow(ratio, commodity.elasticity)
 		print(commodity.commodity_name, " updated price: ", commodity.current_price, ", quantity: ", commodity.global_quantity)
 		$Panel/PriceGraph.record_price(commodity.commodity_name, commodity.current_price)
-
-
-##
