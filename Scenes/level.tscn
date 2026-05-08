@@ -42,4 +42,12 @@ script = ExtResource("3_6phgx")
 
 [node name="ProductionCentre1" parent="." unique_id=804269367 instance=ExtResource("2_k5f4k")]
 
+[node name="Button" type="Button" parent="." unique_id=1379138880]
+offset_left = 267.0
+offset_top = 375.0
+offset_right = 412.0
+offset_bottom = 478.0
+text = "Buy Iron"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

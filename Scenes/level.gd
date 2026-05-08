@@ -31,7 +31,28 @@ func _update_production():
 
 func _update_market():
 	for commodity in Globals.commodities:
-		var ratio = commodity.global_quantity/max(commodity.target_quantity, 1.0)
-		commodity.current_price = commodity.base_price / pow(ratio, commodity.elasticity)
+	
+		##Price-responsive consumption
+		var price_ratio = commodity.current_price / commodity.base_price
+		var actual_consumption = commodity.consumption_rate / pow(price_ratio, commodity.elasticity)
+		
+		##randomness:
+		var noise = randf_range(-commodity.volatility, commodity.volatility)
+		
+		##update quantity
+		commodity.global_quantity += commodity.production_rate
+		commodity.global_quantity -= actual_consumption
+		commodity.global_quantity += noise
+		commodity.global_quantity = max(commodity.global_quantity, 0.0)
+		
+		##Price from quantity vs target
+		var quantity_ratio = commodity.global_quantity/max(commodity.target_quantity, 1.0)
+		commodity.current_price = commodity.base_price / pow(quantity_ratio, commodity.elasticity)
 		print(commodity.commodity_name, " updated price: ", commodity.current_price, ", quantity: ", commodity.global_quantity)
 		$Panel/PriceGraph.record_price(commodity.commodity_name, commodity.current_price)
+
+
+func _on_button_pressed() -> void:
+	for item in Globals.commodities:
+		if item == Globals.IRON_BAR:
+			item.global_quantity -= 230
