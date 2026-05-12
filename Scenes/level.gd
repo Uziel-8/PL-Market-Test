@@ -11,9 +11,6 @@ func _on_timer_timeout() -> void:
 	EventBus.game_tick.emit()
 
 func game_tick():
-	for Commodity in Globals.commodities:
-		print(Commodity.commodity_name, " current price: ", Commodity.current_price)
-	_update_production()
 	_update_market()
 	_update_label()
 
@@ -21,12 +18,6 @@ func _update_label():
 	label.text = ""
 	for commodity in Globals.commodities:
 		label.text += str(commodity.commodity_name, ": ", commodity.current_price) + "\n"
-
-func _update_production():
-	for commodity in Globals.commodities:
-		commodity.global_quantity += commodity.production_rate
-		commodity.global_quantity -= commodity.consumption_rate
-		commodity.global_quantity = max(commodity.global_quantity, 0.0)
 
 
 func _update_market():
@@ -43,12 +34,13 @@ func _update_market():
 		commodity.global_quantity += commodity.production_rate
 		commodity.global_quantity -= actual_consumption
 		commodity.global_quantity += noise
-		commodity.global_quantity = max(commodity.global_quantity, 0.0)
+		commodity.global_quantity = max(commodity.global_quantity, 1.0)
 		
 		##Price from quantity vs target
 		var quantity_ratio = commodity.global_quantity/max(commodity.target_quantity, 1.0)
+		quantity_ratio = max(quantity_ratio, 0.01)
 		commodity.current_price = commodity.base_price / pow(quantity_ratio, commodity.elasticity)
-		print(commodity.commodity_name, " updated price: ", commodity.current_price, ", quantity: ", commodity.global_quantity)
+		print(commodity.commodity_name, " current price: ", commodity.current_price, ", quantity: ", commodity.global_quantity)
 		$Panel/PriceGraph.record_price(commodity.commodity_name, commodity.current_price)
 
 

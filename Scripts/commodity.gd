@@ -8,12 +8,6 @@ class_name Commodity
 @export var base_price: float
 @export var current_price: float
 
-@export var min_supply : float = 100.0
-@export var supply: float
-@export var supply_next: float = 1.0 ##supply in the next tick
-@export var demand: float
-@export var demand_next: float = 1.0
-
 @export var volatility: float = 5.0
 
 @export var global_quantity: int
